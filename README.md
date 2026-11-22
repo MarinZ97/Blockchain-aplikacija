@@ -1,9 +1,18 @@
-# Naziv projekta
+# Turnirski bodovi
 
-Autor: Ime Prezime
+Autor: Marin Žunić
 
-JMBAG:
+JMBAG: 0268033979
 
-Oblik: Redovan/Online
+Oblik: Online
 
-Jedna rečenica: što aplikacija radi i za koju zajednicu.
+Aplikacija za klub društvenih igara koja organizatorima omogućuje unos rezultata turnira i dodjelu bodova pobjednicima, a igračima zamjenu bodova za nagrade.
+
+## Provjera alata (Etapa 1)
+
+```text
+> node -v
+v24.22.3
+> git --version
+git version 2.51.2.windows.1
+```
