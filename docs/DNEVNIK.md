@@ -23,3 +23,9 @@
   - Naknada: `0,0003069000034782 ETH`
   - Provjera naknade: `204600 × 1,500000017 Gwei = 0,0003069000034782 ETH`.
 - Commit: 2. commit — `Sepolia transakcija i dopuna dnevnika` (poslan na `main`).
+
+## T2 — AI intervju i prva specifikacija (24.11.2026.)
+- **Što sam tražio:** Zamolio sam AI da mi pomogne razraditi specifikaciju tokena BOD i nagradne trgovine, prema uputama za Etapu 2, te da otvorena pitanja postavlja jedno po jedno.
+- **Što je AI vratio:** Dopunio je `docs/SPEC.md` pravilima za turnire, bodove i nagrade, matricom ovlasti i kriterijima prihvaćanja.
+- **Što sam provjerio ili ispravio:** Odlučio sam da administrator može ispraviti rezultat samo prije potvrde pobjednika, da se prijave zatvaraju unosom rezultata i da se za rezultat spremaju samo cijeli broj i adresa pobjednika. Potvrdio sam i pravila o modulu, administratorima, cijeni i zalihi nagrada. Iz nacrta smo uklonili dodatno spremanje spaljene cijene uz zahtjev i posebno ponašanje pri čitanju nepostojećih ID-eva jer to nisam tražio. AI je provjerio da SPEC ima 32 kriterija, od toga 20 neuspješnih, te matricu bez praznih ćelija.
+- **Što sam naučio:** Shvatio sam da i male odluke, poput trenutka kada se zatvaraju prijave, trebaju biti zapisane prije pisanja ugovora. Inače bi AI pri izradi koda morao nagađati.
