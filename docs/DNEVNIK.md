@@ -25,7 +25,23 @@
 - Commit: 2. commit — `Sepolia transakcija i dopuna dnevnika` (poslan na `main`).
 
 ## T2 — AI intervju i prva specifikacija (24.11.2026.)
-- **Što sam tražio:** Zamolio sam AI da mi pomogne razraditi specifikaciju tokena BOD i nagradne trgovine, prema uputama za Etapu 2, te da otvorena pitanja postavlja jedno po jedno.
+- **Što sam tražio:** Rekao sam AI-u da mi razradi specifikaciju tokena BOD i nagradne trgovine prema uputama za Etapu 2 te da otvorena pitanja postavlja jedno po jedno.
 - **Što je AI vratio:** Dopunio je `docs/SPEC.md` pravilima za turnire, bodove i nagrade, matricom ovlasti i kriterijima prihvaćanja.
-- **Što sam provjerio ili ispravio:** Odlučio sam da administrator može ispraviti rezultat samo prije potvrde pobjednika, da se prijave zatvaraju unosom rezultata i da se za rezultat spremaju samo cijeli broj i adresa pobjednika. Potvrdio sam i pravila o modulu, administratorima, cijeni i zalihi nagrada. Iz nacrta smo uklonili dodatno spremanje spaljene cijene uz zahtjev i posebno ponašanje pri čitanju nepostojećih ID-eva jer to nisam tražio. AI je provjerio da SPEC ima 32 kriterija, od toga 20 neuspješnih, te matricu bez praznih ćelija.
-- **Što sam naučio:** Shvatio sam da i male odluke, poput trenutka kada se zatvaraju prijave, trebaju biti zapisane prije pisanja ugovora. Inače bi AI pri izradi koda morao nagađati.
+- **Što sam provjerio ili ispravio:** Odlučio sam da administrator može ispraviti rezultat samo prije potvrde pobjednika, da se prijave zatvaraju unosom rezultata i da se za rezultat spremaju samo cijeli broj i adresa pobjednika. Potvrdio sam i pravila o modulu, administratorima, cijeni i zalihi nagrada. U nacrtu je bilo još nekoliko detalja koje nisam tražio, pa smo ih maknuli. AI je provjerio da prva verzija SPEC-a ima 32 kriterija, od toga 20 neuspješnih, te matricu bez praznih ćelija.
+- **Što sam naučio:** Shvatio sam da odluke poput trenutka kada se zatvaraju prijave trebaju biti zapisane prije pisanja ugovora. Inače bi AI morao nagađati pri izradi koda.
+
+## T2 — Kritika specifikacije (25.11.2026.)
+- **Što sam tražio:** U drugom razgovoru rekao sam AI-u da pregleda moj SPEC i kaže mi gdje se pravila ne slažu, što sam možda propustio, gdje bi netko mogao iskoristiti rupu u pravilima i što kasnije neću moći lako provjeriti.
+- **Što je AI vratio:** AI mi je dao 13 primjedbi i predložio nove ili popravljene kriterije.
+- **Što sam provjerio ili ispravio:** Prošao sam tih 13 primjedbi jednu po jednu i odlučio što prihvaćam. AI je prema tome dopunio SPEC. Neke prijedloge nisam prihvatio jer bi mi previše zakomplicirali projekt.
+- **Što sam naučio:** Shvatio sam da pravilo treba napisati dovoljno jasno da ga kasnije mogu provjeriti u testu. Ne trebam prihvatiti svaki AI prijedlog ako mi samo komplicira projekt.
+
+| Nalaz | Odluka | Obrazloženje |
+| --- | --- | --- |
+| Obična adresa može biti modul | Djelomično prihvaćeno | Modul mora biti objavljen ugovor; vlasnik i dalje provjerava da je to pravi modul. |
+| Nije određen raspon rezultata | Prihvaćeno | Rezultat je `uint256`, a 0 je dopušten. |
+| Nedostaju neuspješni slučajevi turnira | Prihvaćeno | Dodani su kriteriji za potvrdu bez rezultata, prijavu nakon potvrde i nepostojeći ID. |
+| Spaljivanje oslobađa prostor ispod granice | Prihvaćeno | Dodan je kriterij za neuspjelu dodjelu pri 1000 BOD i uspjeh nakon spaljivanja 10 BOD. |
+| Dva administratora trebaju potvrditi pobjednika | Odbijeno | Dogovorena je jedna administratorska potvrda; dodatna potvrda proširila bi projekt. |
+| Igrač treba dodatno potvrditi preuzimanje | Odbijeno | To bi dodalo korak, a i dalje ne bi dokazalo fizičku predaju. |
+| `approve` nije objašnjen | Prihvaćeno | `approve` postavlja dopuštenje, ali `transferFrom` i dalje ne može prenijeti BOD. |
